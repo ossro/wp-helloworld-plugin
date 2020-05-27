@@ -5,17 +5,17 @@
  *
  * @category Plugins
  * @package  WordPress
- * @author   Aladar Barthi - Updatr.io <support@updatr.io>
+ * @author   UpdaterCloud <support@updatercloud.com>
  * @license  GPLv3 https://www.gnu.org/licenses/gpl-3.0.html
- * @link     https://updatr.io
+ * @link     https://updatercloud.com
  *
  * @wordpress-plugin
  * Plugin Name: Hello World
- * Plugin URI:  https://updatr.io
+ * Plugin URI:  https://updatercloud.com
  * Description: Hello World sample plugin for WordPress.
  * Version:     1.0.0
- * Author:      Aladar Barthi - Updatr.io <support@updatr.io>
- * Author URI:  https://updatr.io
+ * Author:      UpdaterCloud <support@updatercloud.com>
+ * Author URI:  https://updatercloud.com
  * License:     GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain: wp-helloworld-plugin
@@ -30,18 +30,18 @@ if (!defined('WPINC')) {
 require_once plugin_dir_path(__FILE__) . 'functions.php';
 
 /**
- * Integrate Updatr.io automatic updates.
+ * Integrate UpdaterCloud automatic updates.
  */
-require_once plugin_dir_path(__FILE__) . 'wp-updatr/wp-updatr.php';
+require_once plugin_dir_path(__FILE__) . 'wp-updatercloud/wp-updatercloud.php';
 
 /**
- * Your Updatr.io updatr channel url.
+ * Your UpdaterCloud update channel url.
  *
  * You may want to use different update channel urls for
  * dev and stable releases and offer an option to your customer
  * to select what channel to use for updates.
  */
-$url = 'http://sandbox.updatr.vagrant/api/v1/update-channels/hello-world-wordpress-plugin-updates.json';
+$url = 'http://sandbox.updatercloud.vagrant/api/v1/update-channels/hello-world-wordpress-plugin-updates.json';
 
 /**
  * Download key.
@@ -52,7 +52,7 @@ $url = 'http://sandbox.updatr.vagrant/api/v1/update-channels/hello-world-wordpre
 $downloadKey = get_option('wp_helloworld_plugin_downloadkey');
 
 /**
- * Updatr.io can gather some analytics data about customers
+ * UpdaterCloud can gather some analytics data about customers
  * WP version, blog language, PHP version, installed plugin version, etc.
  * You must ask your customer for permission to gather and store
  * analytics data from their website. For this example,
@@ -62,8 +62,8 @@ $downloadKey = get_option('wp_helloworld_plugin_downloadkey');
 $canGatherAnalyticsData = true;
 
 // Create new updater instance.
-$updatr = Updatr_v1_Factory::buildUpdateChecker(
-    $url, // Your Updatr.io update channel url for this plugin
+$updaterCloud = UpdaterCloud_v1_Factory::buildUpdateChecker(
+    $url, // Your UpdaterCloud update channel url for this plugin
     __FILE__, // Full path to the main plugin file
     'wp-helloworld-plugin', // Plugin slug
     $checkPeriod = 12, // Update check frequency in hours
